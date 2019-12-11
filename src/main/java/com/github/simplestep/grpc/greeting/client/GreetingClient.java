@@ -88,19 +88,19 @@ public class GreetingClient {
         // streaming message #1
         System.out.println("sending message #1");
         requestObserver.onNext(LongGreetRequest.newBuilder()
-                .setGreeting(Greeting.newBuilder().setFirstName("Stephane").build())
+                .setGreeting(Greeting.newBuilder().setFirstName("Timo").build())
                 .build());
 
         // streaming message #2
         System.out.println("sending message #2");
         requestObserver.onNext(LongGreetRequest.newBuilder()
-                .setGreeting(Greeting.newBuilder().setFirstName("John").build())
+                .setGreeting(Greeting.newBuilder().setFirstName("Ben").build())
                 .build());
 
         // streaming message #3
         System.out.println("sending message #3");
         requestObserver.onNext(LongGreetRequest.newBuilder()
-                .setGreeting(Greeting.newBuilder().setFirstName("Marc").build())
+                .setGreeting(Greeting.newBuilder().setFirstName("Titan").build())
                 .build());
 
         // we tell the server taht the client is done sending data
@@ -123,7 +123,7 @@ public class GreetingClient {
 
         StreamObserver<GreetEveryoneRequest> requestObserver = asyncClient.greetEveryone(null);
 
-        Arrays.asList("Stephane", "John", "Marc", "Patricia").forEach(name -> {
+        Arrays.asList("Timo", "Ben", "Titan", "Joey").forEach(name -> {
             System.out.println("Sending: " + name);
             requestObserver.onNext(GreetEveryoneRequest.newBuilder()
                     .setGreeting(Greeting.newBuilder().setFirstName(name).build()).build());
